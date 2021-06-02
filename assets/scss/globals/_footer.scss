@@ -1,0 +1,41 @@
+.footer {
+  background-color: #000000;
+  color: $white;
+  padding: 4rem;
+  font-size: 1.6rem;
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+  &__contact {
+    padding: 0 0 2rem 0;
+  }
+  &__social {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__social-list-item {
+    list-style-type: none;
+    padding: 0 1rem;
+  }
+  &__social-icon {
+    svg {
+      width: 20px;
+      fill: $lightGray;
+    }
+  }
+  &__copyright {
+    text-align: center;
+    @include breakpoint(md) {
+      display: flex;
+      p {
+        font-size: 1.2rem;
+        margin: 0;
+        margin-right: 0.5rem;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

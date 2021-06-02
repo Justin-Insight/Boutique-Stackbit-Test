@@ -1,0 +1,35 @@
+<div class="share-this flex">
+    <div><span>Share This</span></div>
+    <ul class="share-buttons">
+        <li>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}" title="Share on Facebook" target="_blank">
+                {{ partial "svg-icons/facebook-share.svg" . }}
+            </a>
+        </li>
+        <li>
+            <a href="https://twitter.com/intent/tweet?source={{ .Permalink }}" target="_blank" title="Tweet">
+                {{ partial "svg-icons/twitter.svg" . }}
+            </a>
+        </li>
+        <li>
+            <a href="http://pinterest.com/pin/create/button/?url={{ .Permalink }}" target="_blank" title="Pin it">
+                {{ partial "svg-icons/pinterest.svg" . }}
+            </a>
+        </li>
+        <li>
+            <a href="https://getpocket.com/save?url={{ .Permalink }}" target="_blank" title="Add to Pocket" onclick="window.open('https://getpocket.com/save?url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;">
+                {{ partial "svg-icons/pocket.svg" . }}
+            </a>
+        </li>
+        <li>
+            <a href="http://www.linkedin.com/shareArticle?mini=true&url={{ .Permalink }}" target="_blank" title="Share on LinkedIn">
+                {{ partial "svg-icons/linkedin-share.svg" . }}
+            </a>
+        </li>
+        <li>
+            <a href="mailto:?subject=&body={{ .Permalink }}" target="_blank" title="Send email">
+                {{ partial "svg-icons/email.svg" . }}
+            </a>
+        </li>
+    </ul>
+</div>

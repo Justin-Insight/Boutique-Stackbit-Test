@@ -1,0 +1,26 @@
+.blog-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.featured-image {
+  height: 400px;
+  max-height: 400px;
+  object-fit: cover;
+}
+.post-content {
+  figure img {
+    margin: 0 auto;
+  }
+  .half {
+    max-width: 50%;
+    margin: 0 auto;
+  }
+  blockquote {
+    border-left: 5px solid $primaryColor;
+    padding: 2rem;
+    p {
+      margin-bottom: 0;
+    }
+  }
+}

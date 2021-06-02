@@ -1,0 +1,57 @@
+{{ "<!-- Header -->" | safeHTML }}
+<a class="screen-reader-skip-to-content" href="#main-content" tabindex="0">Skip to main content</a>
+<a class="screen-reader-skip-to-content" href="#footer" tabindex="0">Skip to footer content</a>
+<header class="site-header" role="banner">
+  <div class="header-secondary">
+    <div class="container-wide">
+      <nav class="header-secondary__subnav" role="navigation" aria-label="Sub Navigation">
+        <ul class="header-secondary__nav-list">
+          <li class="header-secondary__nav-list-item">
+            <a href="tel:{{ site.Params.phone }}">P: {{ site.Params.phone }}</a>
+          </li>
+          <li class="header-secondary__nav-list-item">
+            <a href="/contact/">Request an Appointment</a>
+          </li>
+          <!-- <li class="header-secondary__nav-list-item">
+            <a href="{{ site.Social.instagram }}">Instagram</a>
+          </li>
+          <li class="header-secondary__nav-list-item">
+            <a href="{{ site.Social.facebook }}">Facebook</a>
+          </li>
+          <li class="header-secondary__nav-list-item">
+            <a href="{{ site.Social.youtube }}">Youtube</a>
+          </li>
+          <li class="header-secondary__nav-list-item">
+            <a href="{{ site.Social.linkedin }}">LinkedIn</a>
+          </li> -->
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <nav class="container-wide nav primary-nav" role="navigation" aria-label="Primary Navigation">
+    <div class="logo-wrapper">
+      <a class="brand-logo" href="{{ site.BaseURL }}">
+        {{ if site.Params.logo }}
+          <img src="{{ site.Params.logo | absURL }}" alt="{{ site.Title }}" class="img-responsive dim" width="200" height="100">
+        {{ else }}
+          <h1>{{ site.Title }}</h1>
+        {{ end }}
+      </a>
+    </div>
+    <button class="hamburger hamburger--slider" type="button" aria-label="open mobile menu" aria-expanded="false">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    {{ with .Site.Menus.main }}
+      <ul class="nav-list">
+          {{ range . }}
+          <li class="nav-list-item">
+            <a class="nav-item" class="nav-item" href="{{ .URL }}" aria-label="{{ .Name }}"
+              title="{{ .Name }}">{{ .Name }}</a>
+          </li>
+          {{ end }}
+        </ul>
+    {{ end }}
+  </nav>
+</header>

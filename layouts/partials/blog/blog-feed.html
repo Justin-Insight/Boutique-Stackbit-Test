@@ -1,0 +1,8 @@
+<div class="container blog-container" data-scroll-section>
+    <h3>Read some of our recent posts to learn more about {{ .Site.Params.author }}.</h3>
+      {{ $pages := .Site.RegularPages }}
+      {{ $blog := where $pages "Type" "blog" }}
+      {{- range first 3 $blog -}}
+      {{ .Render "article" }}
+      {{- end -}}
+  </div>

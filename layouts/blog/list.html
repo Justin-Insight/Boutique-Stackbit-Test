@@ -1,0 +1,15 @@
+{{ define "main" }}
+<section class="fade-up container padding-top-10 padding-bottom-10">
+  {{ with .Params.intro }}
+  <h2 class="primary-text">{{ .heading }}</h2>
+  <p class="g5">{{ .subhead }}</p>
+  {{ end }}
+  <div class="blog-container">
+    {{ range (.Paginate ( where .Site.RegularPages "Type" "blog" )).Pages }}
+    {{ .Render "article" }}
+    {{ end }}
+  {{ partial "blog/custom-pagination.html" . }}
+  </div>
+</section>
+{{ partial "cta-inner" . }}
+{{ end }}

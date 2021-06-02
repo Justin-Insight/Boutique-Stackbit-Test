@@ -1,0 +1,73 @@
+{{ define "main" }}
+<section class="home-hero">
+  <div class="container-wide padding-top-6 padding-bottom-6 flex flex-column flex-row-s flex-center">
+    {{ with .Params.hero }}
+    <div class="w-100 w-50-s">
+      <h1 class="text-primary">{{ .heading }}</h1>
+      <p class="g5 text-white">{{ .subhead | markdownify }}</p>
+      <p class="text-white">{{ .copy }}</p>
+      <a href="/about/" class="btn btn-secondary">{{ .button_text }}<span class="screen-reader-text"> About Boutique Hearing</span></a>
+    </div>
+    <div class="w-100 w-50-s">
+      {{ partial "next-gen-png" . }}
+    </div>
+    {{ end }}
+  </div>
+</section>
+<section>
+  <div class="fade-up container-wide padding-top-10 padding-bottom-10">
+    {{ with .Params.intro }}
+    <h2 class="text-center padding-bottom-2">{{ .heading }}</h2>
+    {{ end }}
+    <div class="flex flex-column flex-row-m">
+      <div class="image-wrap w-100 w-50-m">
+        <div class="background-image">
+          {{ partial "next-gen-jpg" . }}
+        </div>
+      </div>
+      <div class="w-100 w-50-m">
+        {{ with .Params.intro }}
+        {{  range .benefits }}
+          <h3>{{ .heading }}</h3>
+          <p>{{ .copy }}</p>
+        {{ end }}
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+<section class="fade-up featured-testimonial-container" data-scroll-section>
+ <div class="container padding-top-10 padding-bottom-10">
+  {{ with .Params.testimonial }}
+  <h3 class="g2 text-center text-primary">{{ .heading }}</h3>
+  <p class="text-center text-white">{{ .featured_testimonial }}</p>
+  <p class="text-center text-white">{{ .author }}</p>
+  <div class="text-center">
+    <a href="/testimonials/" class="btn btn-secondary">{{ .button_text }}</a>
+  </div>
+  {{ end }}
+ </div>
+ <div class="container-wide">
+   {{ with .Params.blog }}
+    <h3 class="g2 text-center text-primary">{{ .heading }}</h3>
+    <p class="g5 text-center text-white">({{ .subhead }})</p>
+   {{ end }}
+   <div class="featured-posts">
+    {{ $pages := .Site.RegularPages }}
+    {{ $recentPosts := where $pages "Type" "blog" }}
+    {{ range first 3 $recentPosts }}
+    {{ partial "blog/blog-cards" . }}
+    {{ end }}
+   </div>
+  </div>
+</section>
+<section class="fade-up white-noise">
+  <div class="container padding-top-10 padding-bottom-10">
+    {{ with .Params.video }}
+    <h3 class="g2 text-center">{{ .heading }}</h3>
+    {{ end }}
+    <lite-youtube videoid="pb1QAUkaYns" videotitle="Boutique Hearing Featured on American Health Front"></lite-youtube>
+  </div>
+</section>
+{{ partial "cta" . }}
+{{ end }}

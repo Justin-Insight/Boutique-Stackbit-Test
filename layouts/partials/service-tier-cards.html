@@ -1,0 +1,18 @@
+{{ with .Params.service_tiers }}
+<div class="container">
+    <p class="g5 text-primary">{{ .subhead }}</p>
+</div>
+<div class="flex flex-column flex-row-m">
+    {{ range .service_tiers }}
+    <div class="service-cards w-100 w-30-m">
+        <h4 class="text-primary">{{ .heading }}</h4>
+        <p class="text-white"><strong>{{ .subhead }}</strong></p>
+        <ul class="service-cards__benefits-list">
+            {{ range .service_list }}
+            <li class="service-cards__benefits-list-item text-white">{{ .item }}</li>
+            {{ end }}
+        </ul>
+    </div>
+    {{ end }}
+</div>
+{{ end }}

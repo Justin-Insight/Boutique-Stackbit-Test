@@ -1,0 +1,16 @@
+.home-hero {
+  background: $black;
+  &__image {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+.featured-testimonial-container {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url("/images/bkgrnd-wave-fullwidth-final.jpg");
+}
+.bell-image {
+  max-height: 650px;
+}

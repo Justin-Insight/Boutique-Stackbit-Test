@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: $white;
+  font-family: $primaryFont;
+  overflow-x: hidden;
+}
+ul {
+  margin: 0;
+}
+// Style highlight to match our themes colors
+::-moz-selection {
+  background: rgba(113, 158, 184, 0.8);
+  color: $white;
+}
+::selection {
+  background: rgba(113, 158, 184, 0.8);
+  color: $white;
+}
+::-ms-selection {
+  background: rgba(113, 158, 184, 0.8);
+  color: $white;
+}

@@ -1,0 +1,59 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <title>{{ if .Params.seo.title }}{{ .Params.seo.title | markdownify }}{{ else }}{{ .Title }}{{ end }} | {{ .Site.Title }}</title>
+
+    <meta itemprop="name" content="{{ .Title }}">
+    <meta itemprop="description" content="{{ .Params.seo.description }}">
+    <meta itemprop="image" content="{{ if .Params.seo.featured_image }}{{ .Permalink }}{{ .Params.seo.featured_image }}{{ else }}{{ .Permalink }}{{ site.Params.logo }}{{ end }}">
+
+    <meta property="og:site_name" content="{{ .Site.Title }}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ if .Params.seo.title }}{{ .Params.seo.title  | markdownify }}{{ else }}{{ .Title }}{{ end }} | {{ .Site.Title }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:locale" content="en_US">
+    {{ if .Params.image }}
+    <meta property="og:image" content="{{ if .Params.seo.featured_image }}{{ .Permalink }}{{ .Params.seo.featured_image }}{{ else }}{{ .Permalink }}{{ site.Params.logo }}{{ end }}">
+    {{ else }}
+    <meta property="og:image" content="{{ if .Params.seo.featured_image }}{{ .Permalink }}{{ .Params.seo.featured_image }}{{ else }}{{ .Permalink }}{{ site.Params.logo }}{{ end }}">
+    {{ end }}
+    <meta property="og:description" content="{{ .Params.seo.description }}">
+    <meta name="description" content="{{ .Params.seo.description }}">
+
+    <link rel="canonical" href="{{ .Permalink }}">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ .Params.seo.title }}">
+    <meta name="twitter:description" content="{{ .Params.seo.description }}">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:image" content="{{ if .Params.seo.featured_image }}{{ .Permalink }}{{ .Params.seo.featured_image }}{{ else }}{{ .Permalink }}{{ site.Params.logo }}{{ end }}">
+
+    {{ $scss := resources.Get "scss/main.scss" | toCSS }}
+    {{ $postcss := $scss | resources.PostCSS | minify }}
+    <link rel="stylesheet" href="{{ $postcss.Permalink }}" media="screen">
+
+    <link rel="preconnect" href="https://www.google-analytics.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    {{ "<!--Favicon-->" | safeHTML }}
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+
+    {{ if .Site.Params.GoogleAnalytics }}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.GoogleAnalytics }}"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '{{ .Site.Params.GoogleAnalytics }}');
+    </script>
+    {{ end }}
+
+    <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+</head>

@@ -1,0 +1,35 @@
+<footer id="footer" class="footer" role="contentinfo">
+  <div class="footer__contact text-center">
+    <a href="tel:{{ site.Params.phone }}">{{ site.Params.phone }}</a>
+    <ul class="footer__social">
+      <li class="footer__social-list-item">
+        <a href="{{ site.Social.facebook }}" class="footer__social-icon" target="_blank" rel="noreferrer">
+          {{ partial "svg-icons/facebook.svg" . }}
+          <span class="screen-reader-text">Facebook</span>
+        </a>
+      </li>
+      <li class="footer__social-list-item">
+        <a href="{{ site.Social.instagram }}" class="footer__social-icon" target="_blank" rel="noreferrer">
+          {{ partial "svg-icons/instagram.svg" . }}
+          <span class="screen-reader-text">Instagram</span>
+        </a>
+      </li>
+      <li class="footer__social-list-item">
+        <a href="{{ site.Social.youtube }}" class="footer__social-icon" target="_blank" rel="noreferrer">
+          {{ partial "svg-icons/youtube.svg" . }}
+          <span class="screen-reader-text">Youtube</span>
+        </a>
+      </li>
+      <li class="footer__social-list-item">
+        <a href="{{ site.Social.linkedin }}" class="footer__social-icon" target="_blank" rel="noreferrer">
+          {{ partial "svg-icons/linkedin.svg" . }}
+          <span class="screen-reader-text">LinkedIn</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="footer__copyright flex-center">
+    <p>© {{ dateFormat "2006" now }} {{ .Site.Params.author }} All Rights Reserved | <a href="/sitemap/">Sitemap</a></p>
+  </div>
+</footer>
+{{ partial "scripts" . }}

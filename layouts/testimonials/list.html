@@ -1,0 +1,25 @@
+{{ define "main" }}
+    <section class="fade-up container padding-top-10 padding-bottom-10">
+        {{ with .Params.intro}}
+        <h2>{{ .heading }}</h2>
+        <p class="g5">{{ .subhead }}</p>
+        <div class="flex flex-column flex-row-m">
+            <div class="w-100 w-50-m">
+                <p>{{ .copy }}</p>
+                <a href="/contact/" class="btn btn-primary">{{ .button_text }}</a>
+            </div>
+        {{ end }}
+            <div class="w-100 w-50-m">
+                {{ partial  "next-gen-jpg" . }}
+            </div>
+        </div>
+        {{ $paginator := .Paginate ( where .Data.Pages "Type" "testimonials" ) }}
+        {{ range $paginator.Pages }}
+        <div class="fade-up testimonial">
+            <h3>{{ .Title }}</h3>
+            <p>{{ .Content | markdownify }}</p>
+        </div>
+        {{ end }}
+    </section>
+    {{ partial "cta-inner" . }}
+{{ end }}

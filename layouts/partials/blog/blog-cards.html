@@ -1,0 +1,27 @@
+{{ $featuredblogimage := (.Resources.GetMatch (index .Params.image)) }}
+{{ $featuredsmallwebp := $featuredblogimage.Resize "600x q80 webp" }}
+{{ $featuredsmalljpg := $featuredblogimage.Resize "600x q80" }}
+<article class="fade-up blog-summary">
+    <a href="{{ .Permalink }}" class="blog-summary__link">
+      <div class="blog-summary__image-wrap">
+        {{ $has_image := .Params.image }}
+        {{ if $has_image }}
+        <picture>
+          <source sizes="50vw" srcset="{{ $featuredsmallwebp.RelPermalink }}" type="image/webp" >
+          <source sizes="50vw" srcset="{{ $featuredsmalljpg.RelPermalink }}" type="image/jpg" >
+          <img sizes="50vw" loading="lazy"
+              src="{{ $featuredblogimage.RelPermalink }}" width="{{ $featuredblogimage.Width }}" height="{{ $featuredblogimage.Height }}" alt="{{ .Params.image_alt }}" class="blog-summary__img img-responsive zoom-images">
+        </picture>
+        {{  end }}
+      </div>
+      <div class="blog-summary__content">
+        <h3 class="blog-summary__title g4 text-primary">{{ .Title }}</h3>
+        <p class="blog-summary__summary">
+          {{ if .Description }}{{ .Description  | truncate 125 }}{{ else }}{{ .Content | truncate 125 }}{{ end }}
+        </p>
+        <span class="blog-summary__read-more">
+          Read More {{ partial "svg-icons/arrow-right.svg" . }}
+        </span>
+      </div>
+    </a>
+  </article>

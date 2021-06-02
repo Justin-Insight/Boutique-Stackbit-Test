@@ -1,0 +1,37 @@
+{{ define "main" }}
+    <section class="fade-up container padding-top-10 padding-bottom-10">
+       {{ with .Params.intro }}
+        <h2 class="primary-text">{{ .heading }}</h2>
+        <p class="g5">{{ .subhead }}</p>
+        <p>{{ .copy | markdownify }}</p>
+        {{ end }}
+        </div>
+        {{ partial "next-gen-jpg" . }}
+    </section>
+    <section class="fade-up why-boutique bg-black">
+        <div class="container-wide padding-top-10 padding-bottom-10">
+            {{ partial "service-tier-cards" . }}
+            <div class="padding-top-10">
+                {{ with .Params.additional_services }}
+                <h5 class="g2 text-primary">{{ .heading }}</h5>
+                <p class="g5 text-white">{{ .subhead }}</p>
+                <ul>
+                    {{ range .additional_services_list }}
+                    <li class="text-white">{{ .item }}</li>
+                    {{ end }}
+                </ul>
+                {{ end }}
+            </div>
+        </div>
+    </section>
+    <section class="fade-up container padding-top-10 padding-bottom-10">
+        {{ with .Params.service_testimonial }}
+        <h5 class="g2 text-center">{{ .heading }}</h5>
+        <p class="text-center">{{ .testimonial }}<br>{{ .author }}</p>
+        <div class="text-center">
+            <a href="/testimonials/" class="btn btn-primary">{{ .button_text }}</a>
+        </div>
+        {{ end }}
+    </section>
+    {{ partial "cta-inner" . }}
+{{ end }}

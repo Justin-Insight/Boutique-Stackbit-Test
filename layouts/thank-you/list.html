@@ -1,0 +1,9 @@
+{{ define "main" }}
+<section class="fade-up padding-top-4 padding-bottom-4" data-scroll-section>
+    <div class="container">
+        <h2 class="g1">Thank you for your message. A {{ .Site.Params.author }} team member will contact you within 24 hours.</h2>
+        <span class="underline-left"></span>
+    </div>
+</section>
+{{ partial "blog/blog-feed" . }}
+{{ end }}

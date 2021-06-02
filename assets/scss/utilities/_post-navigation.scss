@@ -1,0 +1,47 @@
+.post-navigation {
+  border-top: 1px solid $secondaryColor;
+  padding: 2rem 0 0 0;
+  justify-content: space-between;
+  display: none;
+  @include breakpoint(sm) {
+    display: flex;
+  }
+  &__next a,
+  &__prev a {
+    display: flex;
+    text-decoration: none;
+    &:hover,
+    &:focus {
+      svg {
+        fill: $secondaryColor;
+      }
+    }
+  }
+  &__next {
+    svg {
+      margin-left: 1rem;
+    }
+    &:hover,
+    &:focus {
+      svg {
+        transform: translateX(5px);
+      }
+    }
+  }
+  &__prev {
+    svg {
+      margin-right: 1rem;
+    }
+    &:hover,
+    &:focus {
+      svg {
+        transform: translateX(-5px);
+      }
+    }
+  }
+  svg {
+    width: 20px;
+    fill: $primaryColor;
+    transition: 0.3s ease;
+  }
+}

@@ -1,0 +1,60 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4rem 0;
+  .pagination__next,
+  .pagination__previous,
+  .pagination__numbers {
+    position: relative;
+    z-index: 1;
+    font-weight: 700;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 15px;
+    transition: 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+    color: $white;
+    background: $black;
+    &:hover,
+    &:focus {
+      background: $darkGray;
+    }
+    svg {
+      fill: $white;
+      stroke: $white;
+      width: 20px;
+      transition: 0.3s ease-out;
+    }
+  }
+  &__next {
+    svg {
+      margin-left: 5px;
+    }
+    &:hover,
+    &:focus {
+      svg {
+        transform: translateX(5px);
+      }
+    }
+  }
+  &__numbers {
+    margin: 0 5px;
+  }
+  &__current {
+    opacity: 0.7;
+  }
+  &__previous {
+    svg {
+      margin-right: 5px;
+    }
+    &:hover,
+    &:focus {
+      svg {
+        transform: translateX(-5px);
+      }
+    }
+  }
+}

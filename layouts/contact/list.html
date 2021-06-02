@@ -1,0 +1,43 @@
+{{ define "main" }}
+<div class="fade-up container padding-top-10 padding-bottom-10" data-scroll-section>
+  {{ with .Params.intro }}
+  <h1>{{ .heading }}</h1>
+  <p class="g5">{{ .subhead | markdownify }}</p>
+  <p>{{ .copy | markdownify }}</p>
+  {{ end }}
+    <div class="fade-up padding-top-4 padding-bottom-4">
+        <div class="contact-form">
+            <h4>Request a Consultation</h4>
+            <div class="contact-form__wrapper">
+                <form name="contact" netlify netlify-honeypot="bot-field" action="/thank-you">
+                    <div hidden>
+                        <label>
+                          Don’t fill this out if you're human: 
+                          <input name="bot-field" />
+                        </label>
+                    </div>
+                    <div class="contact-form__form-group">
+                        <label for="name">Name*</label>
+                        <input aria-label="name" name="name" type="name" class="contact-form__form-control" required>
+                    </div>
+                    <div class="contact-form__form-group">
+                        <label for="_replyto">Email*</label>
+                        <input aria-label="email" name="_replyto" type="email" class="contact-form__form-control" required>
+                    </div>
+                    <div class="contact-form__form-group">
+                        <label for="phone">Phone*</label>
+                        <input aria-label="phone" name="phone" type="phone" class="contact-form__form-control" required>
+                    </div>
+                    <div class="contact-form__form-group">
+                        <label for="message">Message*</label>
+                        <textarea aria-label="message" name="message" class="contact-form__form-control" rows="4" required></textarea>
+                    </div>
+                    <div style="margin-bottom: 1em;" netlify-recaptcha></div>
+                    <button target="_blank" type="submit" class="contact-form__btn btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{{ partial "cta-inner" . }}
+{{ end }}

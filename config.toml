@@ -1,0 +1,92 @@
+baseURL = "https://boutique-hearing-dev.netlify.app/"
+languageCode = "en-us"
+title = "Boutique Hearing"
+enableRobotsTXT = true
+disableAliases = true
+# post pagination
+paginate = "8"
+summaryLength = 30
+
+#################### default parameters ################################
+
+[params]
+  logo = "images/boutique-hearing-logo.png"
+  # Meta data
+  description = "Concierge Audiology Services in Chicago"
+  author = "Boutique Hearing"
+  # Contact Information
+  phone = "773-454-4740"
+  email = " "
+  address = " "
+  googleMapLocation = ""
+  disallowSearchEngines = false
+  # Google Analitycs
+  googleAnalytics = " " # Your ID# search 
+  minifyBundles = true
+
+# add redirects/headers
+  [outputs]
+  home = ["HTML", "RSS", "REDIRECTS", "HEADERS"]
+
+# remove .{ext} from text/netlify
+[mediaTypes."text/netlify"]
+  suffixes = [""]
+  delimiter = ""
+
+# add output format for netlify _redirects
+[outputFormats.REDIRECTS]
+  mediatype = "text/netlify"
+  baseName = "_redirects"
+  isPlainText = true
+  notAlternative = true
+
+# add output format for netlify _headers
+[outputFormats.HEADERS]
+  mediatype = "text/netlify"
+  baseName = "_headers"
+  isPlainText = true
+  notAlternative = true
+
+[sitemap]
+  changefreq = "monthly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+[markup.goldmark.renderer]
+  unsafe= true
+
+[[menu.main]]
+    name = "About"
+    url  = "/about/"
+    weight = 1
+
+[[menu.main]]
+    name = "Testimonials"
+    url  = "/testimonials/"
+    weight = 2
+
+[[menu.main]]
+    name = "Services"
+    url  = "/services/"
+    weight = 3
+
+[[menu.main]]
+    name = "Products"
+    url  = "/products/"
+    weight = 4
+
+[[menu.main]]
+    name = "Blog"
+    url  = "/blog/"
+    weight = 5
+
+[[menu.main]]
+    name = "Contact"
+    url  = "/contact/"
+    weight = 6
+
+[social]
+  instagram = "https://www.instagram.com/theboutiquehearinglady/"
+  facebook = "https://www.facebook.com/BoutiqueHearing/"
+  youtube = "https://www.youtube.com/channel/UCtDbr7K4ringhyG2pyIyb4w"
+  linkedin = "https://www.linkedin.com/in/BarbaraCorbettAuD/"

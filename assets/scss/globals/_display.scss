@@ -1,0 +1,30 @@
+.none { display: none !important; }
+.block { display: block !important; }
+.flex {
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+@include breakpoint (sm) {
+  .none-s { display: none !important; }
+  .block-s { display: block !important; }
+  .flex-s {
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+}
+@include breakpoint (md) {
+  .none-m { display: none !important;  }
+  .block-m { display: block !important; }
+  .flex-m {
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+}
+@include breakpoint (lg) {
+  .none-l {display: none !important; }
+  .block-l {display: block !important; }
+  .flex-l {
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+}

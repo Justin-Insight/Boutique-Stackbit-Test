@@ -1,0 +1,86 @@
+.hero {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin-left: auto;
+  padding: 6rem 1rem;
+  margin-top: $mobileHeader;
+  @include breakpoint(md) {
+    height: 80vh;
+    margin-top: $desktopHeader;
+  }
+}
+.hero,
+.short-hero {
+  &__inner {
+    height: 100%;
+    text-align: center;
+    @include breakpoint(md) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+  &__title {
+    letter-spacing: -0.025em;
+  }
+  &__subtitle {
+    font-weight: 400;
+    font-family: $primaryFont;
+    font-size: 2rem;
+    letter-spacing: 0.015em;
+    margin-bottom: 40px;
+    @include breakpoint(lg) {
+      font-size: 3rem;
+    }
+  }
+}
+.short-hero {
+  position: relative;
+  margin-top: 70px;
+  @include breakpoint(sm) {
+    margin-top: 85px;
+  }
+  @include breakpoint(md) {
+    margin-top: 140px;
+  }
+  &__inner {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+.hero__title,
+.hero__subtitle {
+  color: $white;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+.hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.blog-single-hero {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 45vh;
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  margin-left: auto;
+  padding: 6rem 1rem;
+  margin-top: 70px;
+  @include breakpoint(md) {
+    margin-top: 140px;
+  }
+  .center-underline {
+    margin: 0;
+  }
+}

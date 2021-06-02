@@ -1,0 +1,37 @@
+.btn {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  font-weight: 700;
+  padding: 0.5rem 1.5rem;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: 0.3s ease-in-out;
+}
+.btn-primary {
+  background: $primaryColor;
+  color: #303030;
+  border: 1px solid $primaryColor;
+  &:hover,
+  &:focus {
+    color: $primaryColor;
+    border: 1px solid $primaryColor;
+    background: $white;
+  }
+}
+.btn-secondary {
+  color: $white;
+  border: 1px solid $white;
+  &:hover,
+  &:focus {
+    color: $white;
+    border: 1px solid $primaryColor;
+    background: $primaryColor;
+  }
+}
+.center-button {
+  margin: 0 auto;
+}
+button {
+  cursor: pointer;
+}

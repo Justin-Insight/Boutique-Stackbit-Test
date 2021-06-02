@@ -1,0 +1,14 @@
+{{ if or .PrevInSection .NextInSection }}
+    <div class="post-navigation flex">
+        <div class="post-navigation__prev">
+            {{ with .PrevInSection }}
+            <a href="{{ .Permalink }}" class="post-navigation__link">{{ partial "svg-icons/arrow-left.svg" . }} Previous Post</a>
+            {{ end }}
+        </div>
+        <div class="post-navigation__next">
+            {{ with .NextInSection }}
+            <a href="{{ .Permalink }}" class="post-navigation__link">Next Post {{ partial "svg-icons/arrow-right.svg" . }}</a>
+            {{ end }}
+        </div>
+    </div>
+{{ end }}

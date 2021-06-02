@@ -1,0 +1,11 @@
+.service-cards {
+  background: #342d29;
+  padding: 1rem;
+  margin: 1rem 0;
+  @include breakpoint(md) {
+    margin: 1rem;
+  }
+  &__benefits-list-item {
+    font-size: 1.6rem;
+  }
+}

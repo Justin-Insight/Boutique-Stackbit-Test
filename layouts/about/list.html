@@ -1,0 +1,32 @@
+{{ define "main" }}
+    <section class="fade-up container padding-top-10 padding-bottom-10">
+       {{ with .Params.our_story }}
+        <h2 class="primary-text">{{ .heading }}</h2>
+        <p class="g5">{{ .subhead }}</p>
+        <div class="flex flex-column flex-row-m">
+            <div class="markdown-copy w-100 w-50-m">
+                <p>{{ .copy | markdownify }}</p>
+            </div>
+        {{ end }}
+            <div class="w-100 w-50-m">
+                {{ partial  "next-gen-jpg" . }}
+            </div>
+        </div>
+    </section>
+    <section class="fade-up why-boutique bg-black">
+        <div class="container-wide padding-top-10 padding-bottom-10">
+            {{ with .Params.why_boutique }}
+            <h3 class="g2 text-center text-primary">{{ .heading }}</h3>
+            {{ range .benefits }}
+            <h4 class="text-primary">{{ .heading }}</h4>
+            <ul class="why-boutique__benefits-list">
+                {{ range .benefit_list }}
+                <li class="why-boutique__benefits-list-item text-white">{{ .item }}</li>
+                {{ end }}
+            </ul>
+            {{ end }}
+            {{ end }}
+        </div>
+    </section>
+    {{ partial "cta-inner" . }}
+{{ end }}

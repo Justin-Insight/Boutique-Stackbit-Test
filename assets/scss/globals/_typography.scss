@@ -1,0 +1,158 @@
+html {
+  font-size: 62.5%;
+}
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+  color: $darkGray;
+  font-family: $primaryFont;
+  font-size: 1.8rem;
+  line-height: 2.7rem;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $secondaryFont;
+  font-weight: 500;
+  color: $darkGray;
+  line-height: 1em;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+p {
+  margin: 0 auto 20px auto;
+}
+/* Font-scale of a major third */
+h1,
+.g1 {
+  font-size: 5rem;
+  @include breakpoint(md) {
+    font-size: 7rem;
+  }
+}
+h2,
+.g2 {
+  font-size: 5rem;
+  @include breakpoint(md) {
+    font-size: 7rem;
+  }
+}
+h3,
+.g3 {
+  font-size: 4rem;
+  @include breakpoint(md) {
+    font-size: 6rem;
+  }
+}
+h4,
+.g4 {
+  font-size: 3rem;
+  @include breakpoint(md) {
+    font-size: 5rem;
+  }
+}
+h5,
+.g5 {
+  font-size: 2.2rem;
+}
+h6,
+.g6 {
+  font-size: 2rem;
+}
+/* Type Scale Gears*/
+.g7 {
+  font-size: 1.8rem;
+}
+.g8 {
+  font-size: 1.6rem;
+}
+.text-left {
+  text-align: left !important;
+}
+.text-right {
+  text-align: right !important;
+}
+.text-center {
+  text-align: center !important;
+}
+@include breakpoint(sm) {
+  .text-left-s {
+    text-align: left !important;
+  }
+  .text-right-s {
+    text-align: right !important;
+  }
+  .text-center-s {
+    text-align: center !important;
+  }
+}
+@include breakpoint(md) {
+  .text-left-m {
+    text-align: left !important;
+  }
+  .text-right-m {
+    text-align: right !important;
+  }
+  .text-center-m {
+    text-align: center !important;
+  }
+}
+@include breakpoint(lg) {
+  .text-left-l {
+    text-align: left !important;
+  }
+  .text-right-l {
+    text-align: right !important;
+  }
+  .text-center-l {
+    text-align: center !important;
+  }
+}
+.i {
+  font-style: italic;
+}
+.b {
+  font-weight: bold;
+}
+.strike {
+  text-decoration: line-through;
+}
+.shift-first {
+  text-transform: capitalize;
+}
+.shift-up {
+  text-transform: uppercase;
+}
+.fw4 {
+  font-weight: 400;
+}
+.fw5 {
+  font-weight: 500;
+}
+.fw6 {
+  font-weight: 600;
+}
+.fw7 {
+  font-weight: 700;
+}
+.fw8 {
+  font-weight: 800;
+}
+.fw9 {
+  font-weight: 900;
+}
+.no-margin {
+  margin: 0;
+}
+.text-white {
+  color: $white;
+}
+.text-primary {
+  color: $primaryColor;
+}

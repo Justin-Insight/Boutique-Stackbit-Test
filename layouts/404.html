@@ -1,0 +1,10 @@
+{{ define "main" }}
+<section class="fade-up padding-top-4 padding-bottom-4">
+    <div class="container">
+        <article>
+            <p>The page you requested could not be found. <a href="{{ "/" | relURL }}">Go back to the homepage.</a></p>
+        </article>
+    </div>
+</section>
+{{ partial "blog/blog-feed" . }}
+{{ end }}

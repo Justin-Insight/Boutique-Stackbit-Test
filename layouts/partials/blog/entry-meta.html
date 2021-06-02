@@ -1,0 +1,11 @@
+<div class="blog-summary__entry-meta">
+    By {{ .Params.author }} | {{ .Date.Format "January 2, 2006" }}
+    <!-- {{ $categories := .Params.categories }}
+    {{ range $index, $category := $categories }}
+    {{ $isLast := lt $index (sub (len $categories) 1) }}
+    {{ $isFirst := eq $index 0 -}}
+    {{ if ($isFirst) }}
+    <span class="screen-reader-text">This entry was posted in</span>{{ end }}
+    <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>{{ if ($isLast) }}, {{ end -}}
+    {{ end -}} -->
+</div>

@@ -1,0 +1,33 @@
+{{ $image := (.Resources.GetMatch (index .Params.image)) }}
+{{ $smallwebp := $image.Resize "600x q80 webp" }}
+{{ $smalljpg := $image.Resize "600x q80" }}
+<article class="fade-up blog-summary" role="article">
+    <a href="{{ .Permalink }}" class="blog-summary__link">
+      <div class="flex flex-column flex-row-m">
+        <div class="w-100 w-30-m">
+          <div class="blog-summary__image-wrap">
+            {{ $has_image := .Params.image }}
+            {{ if $has_image }}
+            <picture>
+              <source sizes="50vw" srcset="{{ $smallwebp.RelPermalink }}" type="image/webp" >
+              <source sizes="50vw" srcset="{{ $smalljpg.RelPermalink }}" type="image/jpg" >
+              <img sizes="50vw" loading="lazy"
+                  src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ .Params.image_alt }}" class="blog-summary__img img-responsive zoom-images">
+            </picture>
+            {{  end }}
+          </div>
+        </div>
+        <div class="w-100 w-70-m">
+          <div class="blog-summary__content">
+            <h3 class="blog-summary__title g4">{{ .Title }}</h3>
+            <p class="blog-summary__summary">
+              {{ if .Description }}{{ .Description  | truncate 125 }}{{ else }}{{ .Content | truncate 125 }}{{ end }}
+            </p>
+            <span class="blog-summary__read-more">
+              Read More {{ partial "svg-icons/arrow-right.svg" . }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </a>
+  </article>

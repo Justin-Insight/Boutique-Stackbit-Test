@@ -1,0 +1,11 @@
+{{ define "main" }}
+    <div class="post-content lane-wide container padding-top-4 padding-bottom-4">
+        <h1>{{ .Title }}</h1>
+        {{ if .Params.image }}
+        <img src="{{ .Params.image }}" alt="{{ .Title }}" class="featured-image padding-bottom-2">
+        {{ end }}
+        {{ .Content  }}
+        {{ partial "blog/share-buttons" . }}
+        {{ partial "blog/post-navigation" . }}
+    </div>
+{{ end }}

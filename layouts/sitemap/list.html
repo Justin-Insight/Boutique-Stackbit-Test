@@ -1,0 +1,31 @@
+{{ define "main" }}
+<div class="fade-up" data-scroll-section>
+    <div class="sitemap-content container padding-top-4 padding-bottom-4">
+        <div class="flex flex-column flex-row-m">
+            <div class="w-100 w-30-m">
+                <h3>Pages</h3>
+                <ul class="sitemap-nav-list">
+                    {{ $url := .RelPermalink }}
+                    {{ range site.Menus.main }}
+                    {{ $active := eq $url .URL }}
+                    <li class="sitemap-nav-list-item">
+                        <a {{if $active }}class="sitemap-nav-item" {{end}} class="sitemap-nav-item" href="{{ .URL }}"
+                            title="{{ .Name }}">{{ .Name }}</a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+            <div class="w-100 w-70-m">
+                <h3>Blog Posts</h3>
+                <ul class="sitemap-nav-list">
+                    {{ $pages := .Site.RegularPages }}
+                    {{ $blog := where $pages "Type" "blog" }}
+                    {{ range $blog }}
+                    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}

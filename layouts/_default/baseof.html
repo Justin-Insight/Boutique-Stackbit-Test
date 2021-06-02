@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ block "head" . }}{{ partial "head" . }}{{ end }}
+{{ $namespace := lower .Page.Title }}
+{{ $mainClass := lower .Page.Title }}
+
+<body data-barba="wrapper">
+  {{ block "header" . }}{{ partial "header" . }}{{end}}
+  <main id="main-content" class="site-main {{ anchorize $mainClass }}" role="main" data-barba="container" data-barba-namespace="{{ anchorize $namespace }}">
+    {{ block "main" . }}{{ end }}
+    {{ block "footer" . }}{{ partial "footer" . }}{{end}}
+  </main>
+</body>
+
+</html>

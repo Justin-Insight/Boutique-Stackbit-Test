@@ -1,0 +1,24 @@
+{{ define "main" }}
+    <section class="fade-up container padding-top-10 padding-bottom-10">
+       {{ with .Params.intro }}
+        <h2 class="primary-text">{{ .heading }}</h2>
+        <p class="g5">{{ .subhead }}</p>
+       {{ end }}
+       {{ $paginator := .Paginate ( where .Data.Pages "Type" "products" ) }}
+        {{ range $paginator.Pages }}
+        <div class="fade-up flex flex-column flex-row-m flex-center padding-top-2 padding-bottom-2">
+            <div class="w-100 w-50-m">
+                <a href="{{ .Params.website }}">
+                    <img src="/images/{{ .Params.image }}" alt="{{ .Params.image_alt }}" class="product-image dim" width="300" height="200">
+                </a>
+            </div>
+            <div class="w-100 w-50-m">
+                <p class="g5">{{ .Title }}</p>
+                <p>{{ .Params.product_description | markdownify }}</p>
+                <a href="{{ .Params.website }}" class="btn btn-primary" target="_blank" rel="noreferrer">{{ .Params.button_text }}</a>
+            </div>
+        </div>
+        {{ end }}
+    </section>
+    {{ partial "cta-inner" . }}
+{{ end }}

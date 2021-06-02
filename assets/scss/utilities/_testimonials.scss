@@ -1,0 +1,6 @@
+.testimonial {
+  padding: 2rem 0;
+}
+.testimonial:not(:last-of-type) {
+  border-bottom: 1px solid $lightGray;
+}

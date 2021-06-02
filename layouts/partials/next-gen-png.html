@@ -1,0 +1,6 @@
+<picture>
+    <source srcset="{{ .Permalink }}images/{{ .image }}.avif 1200w" type="image/avif" >
+    <source srcset="{{ .Permalink }}images/{{ .image }}.webp 1200w" type="image/webp" >
+    <source srcset="{{ .Permalink }}images/{{ .image }}.png 1200w" type="image/png" > 
+    <img src="{{ .Permalink }}images/{{ .image }}.png" alt="{{ .image_alt }}" class="home-hero__image" height="500" width="600" loading="lazy">
+</picture>

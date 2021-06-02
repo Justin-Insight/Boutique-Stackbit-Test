@@ -1,0 +1,20 @@
+{{ $ctaimage := (.Resources.GetMatch (index .Params.cta.cta_image)) }}
+{{ $ctasmallwebp := $ctaimage.Resize "600x q80 webp" }}
+{{ $ctamediumwebp := $ctaimage.Resize "1000x q80 webp" }}
+{{ $ctalargewebp := $ctaimage.Resize "1400x q80 webp" }}
+{{ $ctaextralargewebp := $ctaimage.Resize "1800x q80 webp" }}
+{{ $ctasmalljpg := $ctaimage.Resize "600x q80" }}
+{{ $ctamediumjpg := $ctaimage.Resize "1000x q80" }}
+{{ $ctalargejpg := $ctaimage.Resize "1400x q80" }}
+{{ $ctaextralargejpg := $ctaimage.Resize "1800x q80" }}
+
+{{ $heroClass := lower .Page.Title }}
+<div class="fade-up cta-image-wrapper {{ anchorize $heroClass }}-image">
+  <picture>
+    <source sizes="100vw" srcset="{{ .Params.cta_image_avif_600 }} 600w, {{ .Params.cta_image_avif_1000 }} 1000w, {{ .Params.cta_image_avif_1400 }} 1400w, {{ .Params.cta_image_avif }} 1600w" type="image/avif" > 
+    <source sizes="100vw" srcset="{{ $ctasmallwebp.RelPermalink }} 600w, {{ $ctamediumwebp.RelPermalink }} 1000w, {{ $ctalargewebp.RelPermalink }} 1400w, {{ $ctaextralargewebp.RelPermalink }} 1600w" type="image/webp" > 
+    <source sizes="100vw" srcset="{{ $ctasmalljpg.RelPermalink }} 600w, {{ $ctamediumjpg.RelPermalink }} 1000w, {{ $ctalargejpg.RelPermalink }} 1400w, {{ $ctaextralargejpg.RelPermalink }} 1600w" type="image/jpg" > 
+    <img src="{{ $ctaimage.RelPermalink }}" alt="" width="{{ $ctaimage.Width }}" height="{{ $ctaimage.Height }}" class="cta-image" loading="lazy">
+  </picture>
+  <div class="cityline"></div>
+</div>
