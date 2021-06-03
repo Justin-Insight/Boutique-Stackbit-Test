@@ -1,0 +1,23 @@
+stackbitVersion: ~0.3.0
+# the name of the static site generator
+ssgName: hugo
+# the build command that builds the static site
+buildCommand: hugo
+# the folder where static site generator puts the generated site
+publishDir: public
+# the assets object defining how to handle project assets
+assets:
+  referenceType: static
+  # the folder with static asset files
+  staticDir: static
+  # the folder within the staticDir where the uploaded files will be stored
+  uploadDir: images
+  # the URL path from which the static assets will be server
+  publicPath: /
+# the folder containing project's data files (yaml, json, toml)
+dataDir: data
+# the folder containing project's markdown page files (.md, .mdx, .markdown)
+pagesDir: content
+# list of globs matching the files that should be excluded from the pagesDir
+excludePages:
+  - README.md
